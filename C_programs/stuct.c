@@ -3,26 +3,28 @@
 #include<stdlib.h>
 #include<string.h>
 	
-	struct Person{
+	struct Person{                                   //creates a compound element which hold multiple data types
 		char* name;
 		int age;
 		int height;
 		int weight;
 	};
 	
-	struct Person *Person_create(char* name, int age, int height, int weight)
+
+	// create function to make stucture
+	struct Person *Person_create(char* name, int age, int height, int weight) 
 
 	{
-		struct Person *who  = malloc(sizeof(struct Person));
-		assert(who!= NULL);
-		
-		who->name = strdup(name);
+		struct Person *who  = malloc(sizeof(struct Person)); // malloc allocate raw memory from the OS
+		assert(who!= NULL);                             // Assure that it copies the data to the memory. 
+		who->name = strdup(name); // 
 		who->age = age;
 		who->height = height;
 		who->weight = weight;
 		
 	return who;
 	}
+	
 	
 	void Person_destroy(struct Person *who)
 	{
